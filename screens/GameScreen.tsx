@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import { Text } from 'react-native';
 
 const GameScreen: FC = () => {
-  return <></>;
+  return <Text>Game Screen!</Text>
 }
 
 export default GameScreen;
