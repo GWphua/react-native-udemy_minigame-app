@@ -1,8 +1,12 @@
 import React, { FC } from "react";
-import { TextInput } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
 
 const GameOverScreen: FC = () => {
-  return <TextInput></TextInput>;
+  return <TextInput>Game is over!</TextInput>;
 };
 
 export default GameOverScreen;
+
+const styles = StyleSheet.create({
+
+});
