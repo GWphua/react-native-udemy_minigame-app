@@ -9,13 +9,18 @@ import GameOverScreen from "./screens/GameOverScreen";
 export default function App() {
   const [userNumber, setUserNumber] = useState<number>();
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
+
   const startGameHandler = (pickedNumber: number) => {
     setUserNumber(pickedNumber);
-    setIsGameOver(false);
   };
 
   const gameOverHandler = () => {
     setIsGameOver(true);
+  };
+
+  const restartGameHandler = () => {
+    setUserNumber(undefined);
+    setIsGameOver(false);
   };
 
   let screen = <StartGameScreen onPickNumber={startGameHandler} />;
@@ -27,7 +32,7 @@ export default function App() {
   }
 
   if (isGameOver && userNumber) {
-    screen = <GameOverScreen />;
+    screen = <GameOverScreen onRestart={restartGameHandler} />;
   }
 
   return (

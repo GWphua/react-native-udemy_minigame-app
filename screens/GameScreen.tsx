@@ -4,6 +4,10 @@ import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Title from "../components/ui/Title";
 
+let minBoundary = 1;
+let maxBoundary = 100;
+type Direction = "lower" | "higher";
+
 function generateRandomBetween(
   min: number,
   max: number,
@@ -23,25 +27,21 @@ interface IGameScreen {
   onGameOver: () => void;
 }
 
-let minBoundary = 1;
-let maxBoundary = 100;
-
-type Direction = "lower" | "higher";
-
 const GameScreen: FC<IGameScreen> = ({ userNumber, onGameOver }) => {
-  const initialGuess = generateRandomBetween(
-    1,
-    100,
-    userNumber
-  );
-
+  const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+
+  const resetBoundaries = () => {
+    minBoundary = 1;
+    maxBoundary = 100;
+  };
 
   useEffect(() => {
     if (currentGuess === userNumber) {
+      resetBoundaries();
       onGameOver();
     }
-  }, [onGameOver, currentGuess, userNumber]);
+  }, [onGameOver, currentGuess, userNumber, resetBoundaries]);
 
   const handleGuessHandler = (direction: Direction) => {
     if (

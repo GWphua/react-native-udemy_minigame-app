@@ -1,12 +1,19 @@
 import React, { FC } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
+import PrimaryButton from "../components/ui/PrimaryButton";
 
-const GameOverScreen: FC = () => {
-  return <TextInput>Game is over!</TextInput>;
+interface IGameOverScreen {
+  onRestart: () => void;
+}
+
+const GameOverScreen: FC<IGameOverScreen> = ({ onRestart }) => {
+  return (
+    <View>
+      <PrimaryButton onPress={onRestart}>Restart</PrimaryButton>
+    </View>
+  );
 };
 
 export default GameOverScreen;
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});
