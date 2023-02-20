@@ -1,6 +1,5 @@
-import { StyleSheet, Text } from "react-native";
 import React, { FC } from "react";
-import Colors from "../../constants/colors";
+import { StyleSheet, Text } from "react-native";
 
 interface ITitle {
   children: React.ReactNode;

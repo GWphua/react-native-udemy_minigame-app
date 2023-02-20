@@ -5,10 +5,16 @@ import Title from "../components/ui/Title";
 import Colors from "../constants/colors";
 
 interface IGameOverScreen {
+  userNumber: number;
+  roundsNumber: number;
   onRestart: () => void;
 }
 
-const GameOverScreen: FC<IGameOverScreen> = ({ onRestart }) => {
+const GameOverScreen: FC<IGameOverScreen> = ({
+  userNumber,
+  roundsNumber,
+  onRestart,
+}) => {
   return (
     <View style={styles.rootContainer}>
       <Title>Game Over</Title>
@@ -19,8 +25,9 @@ const GameOverScreen: FC<IGameOverScreen> = ({ onRestart }) => {
         />
       </View>
       <Text style={styles.summaryText}>
-        Your phone needed <Text style={styles.highlight}>X</Text> rounds to
-        guess the number <Text style={styles.highlight}>Y</Text>.
+        Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text>{" "}
+        rounds to guess the number{" "}
+        <Text style={styles.highlight}>{userNumber}</Text>.
       </Text>
 
       <PrimaryButton onPress={onRestart}>Start New Game</PrimaryButton>

@@ -1,5 +1,4 @@
-import React from "react";
-import { FC } from "react";
+import React, { FC } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Colors from "../../constants/colors";
 
