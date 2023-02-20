@@ -44,9 +44,9 @@ const GameOverScreen: FC<IGameOverScreen> = ({
     <ScrollView style={styles.screen}>
       <View style={styles.rootContainer}>
         <Title>Game Over</Title>
-        <View style={styles.imageContainer}>
+        <View style={[styles.imageContainer, imageStyle]}>
           <Image
-            style={[styles.image, imageStyle]}
+            style={styles.image}
             source={require("../assets/images/success.png")}
           />
         </View>
